@@ -24,7 +24,10 @@ func main() {
 
 
 	start = time.Now()
-	sort.Ints(slice)
+	sort.Slice(slice, func(i, j int) bool {
+		return slice[i] < slice[j]
+	})
+	   
 	elapsed = time.Since(start)
 	fmt.Println("Time took to sort slice", elapsed)
 
